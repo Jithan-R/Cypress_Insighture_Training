@@ -1,0 +1,27 @@
+{
+    "chromeWebSecurity" : true,
+    "viewportHeight": 1000,
+    "viewportWidth": 1920,
+    "fixturesFolder": "cypress/fixtures",
+    "video": false,
+    "screenshoutOnRunFailure": true,
+    "screenshotsFolder": "cypress/reports/mochareports/assets",
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+      "reporterEnabled": "mochawesome",
+      "mochawesomeReporterOptions": {
+        "reportPageTitle": "HRM Regression",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      }
+    },
+    
+    "baseUrl": "https://opensource-demo.orangehrmlive.com/web/index.php",
+    "projectId": "d5zibb",
+    "experimentalStudio": true
+}

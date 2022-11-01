@@ -1,6 +1,7 @@
 import loginFunction from '../Training_Test_Function/loginFunction.js';
 import logoutFunction from '../Training_Test_Function/logoutFunction.js'
 
+//"baseUrl": "https://opensource-demo.orangehrmlive.com/web/index.php",
 describe('Log in to the system', function() {
     // var loginPageH5;
     var correctEmail;

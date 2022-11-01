@@ -3,25 +3,36 @@
     "viewportHeight": 1000,
     "viewportWidth": 1920,
     "fixturesFolder": "cypress/fixtures",
+    "testFiles": [
+      "./API_Test/apiPositiveResponse.js",
+      "./API_Test/apiNegativeResponse.js"
+    ],
     "video": false,
     "screenshoutOnRunFailure": true,
-    "screenshotsFolder": "cypress/reports/mochareports/assets",
-    "reporter": "cypress-multi-reporters",
+    "watchForFileChange": true,
+    "reporter" : "mochawesome",
     "reporterOptions": {
-      "reporterEnabled": "mochawesome",
-      "mochawesomeReporterOptions": {
-        "reportPageTitle": "HRM Regression",
-        "reportDir": "cypress/reports/mocha",
-        "quite": true,
-        "charts": true,
-        "overwrite": false,
-        "html": true,
-        "json": true,
-        "timestamp": "mmddyyyy_HHMMss"
-      }
+      "charts": true,
+      "overwrite": false,
+      "html": true,
+      "json": true,
+      "reportDir": "cypress/reports",
+      "timestamp": "mm_dd-HH_MM_ss",
+      "reportFilename": "2022"
     },
-    
-    "baseUrl": "https://opensource-demo.orangehrmlive.com/web/index.php",
+
+    "env": {
+      "gorest" : "https://gorest.co.in/public/v2/",
+      "reqres" : "https://reqres.in/api/",
+      "uniURL" : "http://universities.hipolabs.com/search?country=",
+      "orangehrmlive" : "https://opensource-demo.orangehrmlive.com/web/index.php"
+    },
+
     "projectId": "d5zibb",
-    "experimentalStudio": true
+    "experimentalStudio": true,
+
+    "retries": {
+      "runMode": 1,
+      "openMode" : 2
+    }
 }

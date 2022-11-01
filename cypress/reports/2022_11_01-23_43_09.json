@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-01T18:13:07.795Z",
+    "end": "2022-11-01T18:13:09.583Z",
+    "duration": 1788,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8e027679-fc33-40de-9c6e-1e0b1df54efd",
+      "title": "",
+      "fullFile": "cypress/integration/API_Test/apiPositiveResponse.js",
+      "file": "cypress/integration/API_Test/apiPositiveResponse.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5dd8659f-120d-493e-b0aa-deb8fcae0209",
+          "title": "Positive API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "API Header :- Asserting headers",
+              "fullTitle": "Positive API Test API Header :- Asserting headers",
+              "timedOut": null,
+              "duration": 1273,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Asserting all headers\ncy.request({\n  url: Cypress.env('uniURL') + uniCountry\n}).as('res'), cy.get('@res').its('headers').its('access-control-allow-origin').should('include', HeaderAccessControl), cy.get('@res').its('headers').its('connection').should('include', headerConnection), cy.get('@res').its('headers').its('content-length').should('include', headerContentLength), cy.get('@res').its('headers').its('content-type').should('include', headerContentType), cy.get('@res').its('headers').its('server').should('include', headerServer);",
+              "err": {},
+              "uuid": "3dc9b9a7-b509-476a-9c67-010165440118",
+              "parentUUID": "5dd8659f-120d-493e-b0aa-deb8fcae0209",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET University of Jaffna - Sri Lanka in Array [1] - Positive",
+              "fullTitle": "Positive API Test GET University of Jaffna - Sri Lanka in Array [1] - Positive",
+              "timedOut": null,
+              "duration": 403,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//GET university details\ncy.request({\n  method: 'GET',\n  url: Cypress.env('uniURL') + uniCountry\n}).then(res => {\n  expect(res.status).to.eq(statusCode), expect(res.body[5].domains[0]).to.eq(uniDomain), expect(res.body[5]).has.property('alpha_two_code', uniCountryCode), expect(res.body[5].web_pages[0]).to.eq(uniWebURL), expect(res.body[5]).has.property('country', selectedCountry), expect(res.body[5]).has.property('state-province', uniProvince), expect(res.body[5].name).to.eq(uniName);\n});",
+              "err": {},
+              "uuid": "c307cda2-4376-4104-90ac-b108914c6987",
+              "parentUUID": "5dd8659f-120d-493e-b0aa-deb8fcae0209",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3dc9b9a7-b509-476a-9c67-010165440118",
+            "c307cda2-4376-4104-90ac-b108914c6987"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1676,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "2022",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/reports",
+        "timestamp": "mm_dd-HH_MM_ss",
+        "reportFilename": "2022"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

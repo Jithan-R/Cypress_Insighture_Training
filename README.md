@@ -19,22 +19,18 @@ This is simple cypress training
 5. Install mochawesome-report-generator `npm install mochawesome-report-generator --save-dev`
 6. Change cypress reporter config file (support/cypress.json by default)
 
- `"screenshoutOnRunFailure": true,`
-  `"screenshotsFolder": "cypress/reports/mochareports/assets",`
-  `"reporter": "cypress-multi-reporters",`
-  `"reporterOptions": {`
-    `"reporterEnabled": "mochawesome",`
-    `"mochawesomeReporterOptions" : {`
-     `"reportPageTitle": "RGP Regression",`
-      `"reportDir": "cypress/reports/mocha",`
-      `"quite": true,`
-      `"charts": true,`
-      `"overwrite": false,`
-      `"html": true,`
-      `"json": true,`
-      `"timestamp": "mmddyyyy_HHMMss"`
-    `}`
-  `}`
+"screenshoutOnRunFailure": true,
+    "watchForFileChange": true,
+    "reporter" : "mochawesome",
+    "reporterOptions": {
+      "charts": true,
+      "overwrite": false,
+      "html": true,
+      "json": true,
+      "reportDir": "cypress/reports",
+      "timestamp": "mm_dd-HH_MM_ss",
+      "reportFilename": "2022"
+    },
 
 7. Add cypress report screenshot code (support/index.js) 
 
@@ -53,9 +49,22 @@ This is simple cypress training
     `}`
 `})`
 
+8. Running particular files
+"testFiles": [
+ "./API_Test/apiPositiveResponse.js",
+ "./API_Test/apiNegativeResponse.js"
+]
+
+9. Test Retries
+"retries": {
+  "runMode": 1,
+  "openMode" : 2
+}
+
+10. Save Mocha reporter
+npx cypress run --reporter mochawesome
 
 # Xpath Installation 
-(https://www.npmjs.com/package/cypress-xpath)
 
 1. Install xpath `npm install -D cypress-xpath`
 2. Then include in your project's support/index.js `require('cypress-xpath')`
@@ -93,14 +102,6 @@ This is simple cypress training
 
 # Running testFiles (can run any amount of test spec files)
 - cypress.json add `"testFiles": ["./test_Login/TC001_Login_Logout.spec.js","./test_RegBook/TC001_RegBook_Delete_RegGroup.spec.js"]`
-
-# Sample codes
-https://github.com/ddawson235/salesforce-cypress-demo/tree/master/cypress
-https://github.com/alapanme/Cypress-Automation
-https://github.com/kristijan-pajtasev/cypress-setup
-https://github.com/qaboxletstest/Cypress-Demo
-https://www.youtube.com/watch?v=NfBLB329jpg
-
 
 **or create a new repository on the command line**
 * echo "# Data_Analysis" >> README.md

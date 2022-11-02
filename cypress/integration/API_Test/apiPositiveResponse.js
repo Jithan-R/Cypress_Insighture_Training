@@ -4,7 +4,6 @@ describe('Positive API Test', function () {
     let uniCountry;
     let statusCode, uniDomain, uniCountryCode, uniWebURL, selectedCountry, uniProvince, uniName;
     let HeaderAccessControl, headerConnection, headerContentLength, headerContentType, headerServer;
-
 /*Checklist
     => Cover all positive scenarios                                                         => Done
     => Assert all headers                                                                   => Done
@@ -64,6 +63,16 @@ describe('Positive API Test', function () {
         
         cy.get('@res').its('headers').its('server')
         .should('include', headerServer);
+    });
+
+
+    it ('URL : Validating landed in conrrect uni country : Sri Lanka', function() {
+        cy.request({
+            // method : 'GET',
+            url : Cypress.env('uniURL') + (uniCountry)
+        }).then(function(res){
+            expect(res.body[5].web_pages[0]).to.eq(uniWebURL)
+        })
     });
 
     it ('GET University of Jaffna - Sri Lanka in Array [1] - Positive', function() {

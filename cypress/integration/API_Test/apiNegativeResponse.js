@@ -17,9 +17,8 @@
 */
 
 describe('Negative API Test', function () {
-    let uniCountry;
-    let statusCode, uniDomain, uniCountryCode, uniWebURL, selectedCountry, uniProvince, uniName;
-    let HeaderAccessControl, headerConnection, headerContentLength, headerContentType, headerServer;
+    let uniCountry, worngUniCountrySelection;
+    let statusCode, uniWebURL;
     let wrongStatusCode, wrongAccessControl, wrongConnection, wrongContentLength, wrongContentType, wrongServer;
 
     beforeEach('Here we will assing all base functions', function(){
@@ -34,19 +33,7 @@ describe('Negative API Test', function () {
             wrongStatusCode = uniAPIData[1].wrongStatusCode;
 
             //Getting unidata to validate
-            uniDomain = uniAPIData[2].uniDomain;
-            uniCountryCode = uniAPIData[2].uniCountryCode;
             uniWebURL = uniAPIData[2].uniWebURL;
-            selectedCountry = uniAPIData[2].selectedCountry;
-            uniProvince = uniAPIData[2].uniProvince;
-            uniName = uniAPIData[2].uniName;
-
-            //Getting header details
-            HeaderAccessControl = uniAPIData[3].HeaderAccessControl;
-            headerConnection = uniAPIData[3].headerConnection;
-            headerContentLength = uniAPIData[3].headerContentLength;
-            headerContentType = uniAPIData[3].headerContentType;
-            headerServer = uniAPIData[3].headerServer;
 
             //Getting wrong Header
             wrongAccessControl = uniAPIData[4].wrongAccessControl;
@@ -54,7 +41,7 @@ describe('Negative API Test', function () {
             wrongContentLength = uniAPIData[4].wrongContentLength;
             wrongContentType = uniAPIData[4].wrongContentType;
             wrongServer = uniAPIData[4].wrongServer;
-
+            worngUniCountrySelection = uniAPIData[5].worngUniCountrySelection
             cy.request({
                 url : Cypress.env('uniURL') + (uniCountry)
             }).as('res')
@@ -160,12 +147,21 @@ describe('Negative API Test', function () {
         });
     });
 
-    it ('GET - Validating not contain', function() {
+    it ('GET - Validating not equal', function() {
         cy.request({
             method : 'GET',
             url : Cypress.env('uniURL') + (uniCountry),
         }).then((res)=>{
             expect(res.body[5].name).not.eq();
         });
+    });
+
+    it ('URL : Validating landed in wrong uni country', function() {
+        cy.request({
+            // method : 'GET',
+            url : Cypress.env('uniURL') + (worngUniCountrySelection)
+        }).then(function(res){
+            expect(res.body[5].web_pages[0]).to.not.eq(uniWebURL)
+        })
     });
 });

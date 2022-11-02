@@ -88,7 +88,7 @@
 * SKIP
 - When you're running your tests from the Test Runner,other than the needed tests has `skip`, as this basically tells cypress to skips that particular test and run all others.
     it.skip ('', function() {
-<br>    });
+    });
     
 # Running Specific Test
 * Running particular files

@@ -33,6 +33,6 @@
 
     "retries": {
       "runMode": 1,
-      "openMode" : 2
+      "openMode" : 3
     }
 }

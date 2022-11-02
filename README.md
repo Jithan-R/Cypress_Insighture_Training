@@ -112,5 +112,5 @@ npx cypress run --reporter mochawesome
 # Retries test multiple times when they failed
 "retries": {
   "runMode": 1,
-  "openMode" : 2
+  "openMode" : 3
 }

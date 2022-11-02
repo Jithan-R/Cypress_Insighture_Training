@@ -1,0 +1,146 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-02T13:39:18.939Z",
+    "end": "2022-11-02T13:39:21.050Z",
+    "duration": 2111,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bb6f3b4c-618c-45f4-84a2-7e5419df2a4e",
+      "title": "",
+      "fullFile": "cypress/integration/API_Test/apiPositiveResponse.js",
+      "file": "cypress/integration/API_Test/apiPositiveResponse.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6d193550-345a-4559-8dca-3fc8da6c98e1",
+          "title": "Positive API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "API Header :- Asserting headers",
+              "fullTitle": "Positive API Test API Header :- Asserting headers",
+              "timedOut": null,
+              "duration": 1301,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Asserting all headers\ncy.request({\n  url: Cypress.env('uniURL') + uniCountry\n}).as('res'), cy.get('@res').its('headers').its('access-control-allow-origin').should('include', HeaderAccessControl), cy.get('@res').its('headers').its('connection').should('include', headerConnection), cy.get('@res').its('headers').its('content-length').should('include', headerContentLength), cy.get('@res').its('headers').its('content-type').should('include', headerContentType), cy.get('@res').its('headers').its('server').should('include', headerServer);",
+              "err": {},
+              "uuid": "ae1b9569-be59-45f3-8fe0-5dee4d3d2bdc",
+              "parentUUID": "6d193550-345a-4559-8dca-3fc8da6c98e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "URL : Validating landed in conrrect uni country : Sri Lanka",
+              "fullTitle": "Positive API Test URL : Validating landed in conrrect uni country : Sri Lanka",
+              "timedOut": null,
+              "duration": 349,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  // method : 'GET',\n  url: Cypress.env('uniURL') + uniCountry\n}).then(function (res) {\n  expect(res.body[5].web_pages[0]).to.eq(uniWebURL);\n});",
+              "err": {},
+              "uuid": "10becedc-44c4-4393-a6a3-21ee0d2f8ff5",
+              "parentUUID": "6d193550-345a-4559-8dca-3fc8da6c98e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET University of Jaffna - Sri Lanka in Array [1] - Positive",
+              "fullTitle": "Positive API Test GET University of Jaffna - Sri Lanka in Array [1] - Positive",
+              "timedOut": null,
+              "duration": 323,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//GET university details\ncy.request({\n  method: 'GET',\n  url: Cypress.env('uniURL') + uniCountry\n}).then(res => {\n  expect(res.status).to.eq(statusCode), expect(res.body[5].domains[0]).to.eq(uniDomain), expect(res.body[5]).has.property('alpha_two_code', uniCountryCode), expect(res.body[5].web_pages[0]).to.eq(uniWebURL), expect(res.body[5]).has.property('country', selectedCountry), expect(res.body[5]).has.property('state-province', uniProvince), expect(res.body[5].name).to.eq(uniName);\n});",
+              "err": {},
+              "uuid": "9579ed0f-f519-4f69-a69b-17edc28d6efc",
+              "parentUUID": "6d193550-345a-4559-8dca-3fc8da6c98e1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae1b9569-be59-45f3-8fe0-5dee4d3d2bdc",
+            "10becedc-44c4-4393-a6a3-21ee0d2f8ff5",
+            "9579ed0f-f519-4f69-a69b-17edc28d6efc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1973,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports",
+        "timestamp": "dd-mm-yyyy--HH-MM-ss",
+        "reportFilename": ""
+      },
+      "version": "5.2.0"
+    }
+  }
+}

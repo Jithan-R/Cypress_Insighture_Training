@@ -14,11 +14,11 @@
     "reporterOptions": {
       "charts": true,
       "overwrite": false,
-      "html": true,
+      "html": false,
       "json": true,
       "reportDir": "cypress/reports",
-      "timestamp": "mm_dd-HH_MM_ss",
-      "reportFilename": "2022"
+      "timestamp": "dd-mm-yyyy--HH-MM-ss",
+      "reportFilename": ""
     },
 
     "env": {

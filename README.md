@@ -7,11 +7,7 @@
 * There are a lot dependencies that are not updated frequently in parallel with cypress. So while installing if you are seeing conflicts use`npm install --force`.
 * Run `npm Cypress_Open` to execute the tests in Test Runner | Run `npx cypress run` to execute the tests in CLI
 
-
-# Mocha Multi Reporters Installation 
-(https://www.npmjs.com/package/cypress-multi-reporters)
-(https://www.npmjs.com/package/cypress-mochawesome-reporter)
-
+# Mocha Multi Reporters Installation
 * Install Mocha `npm npm install mocha --save-dev`
 * Install cypress-multi-reporters `npm install cypress-multi-reporters --save-dev`
 * Install mochawesome `npm install mochawesome --save-dev`
@@ -32,7 +28,7 @@
       "reportFilename": "2022"
     },
 
-* Add cypress report screenshot code (support/index.js) 
+# Add cypress report screenshot code (support/index.js) 
 
 `const addContext = require('mochawesome/addContext')`
 
@@ -49,23 +45,7 @@
     `}`
 `})`
 
-* Running particular files
-"testFiles": [
- "./API_Test/apiPositiveResponse.js",
- "./API_Test/apiNegativeResponse.js"
-]
-
-* Test Retries
-"retries": {
-  "runMode": 1,
-  "openMode" : 2
-}
-
-* Save Mocha reporter
-npx cypress run --reporter mochawesome
-
 # Xpath Installation 
-
 * Install xpath `npm install -D cypress-xpath`
 * Then include in your project's support/index.js `require('cypress-xpath')`
 
@@ -92,25 +72,35 @@ npx cypress run --reporter mochawesome
 * Import Moment as `import moment from 'moment';`
 * Usable syntax `moment().format();`
 
+
+# ****************************************************************************************************************************************************************** #
+# Running Cypress
+* npx cypress open
+
 # Running All Specs
 - When you're running your tests from the Test Runner, make sure that none of the tests has `only`, as this basically tells cypress to run that particular test and skip all others.
 
+# Running Specific Test
+* Running particular files
+"testFiles": [
+ "./API_Test/apiPositiveResponse.js",
+ "./API_Test/apiNegativeResponse.js"
+]
+
+* npx cypress run --spec ./cypress/integration/API_Test/apiPositiveResponse.js
+* npx cypress run --spec ./cypress/integration/API_Test/apiNegativeResponse.js
+
 # Running integrationFolder (at a time only one folder can run)
-- cypress.json add `"integrationFolder": "cypress/integration/test_Login",`
+- cypress.json add `"integrationFolder": "cypress/integration/API_Test/apiPositiveResponse.js",`
 
 # Running testFiles (can run any amount of test spec files)
-- cypress.json add `"testFiles": ["./test_Login/TC001_Login_Logout.spec.js","./test_RegBook/TC001_RegBook_Delete_RegGroup.spec.js"]`
+- cypress.json add `"testFiles": ["./API_Test/apiPositiveResponse.js","./API_Test/apiNegativeResponse.js"]`
 
-**or create a new repository on the command line**
-* echo "# Data_Analysis" >> README.md
-* git init
-* git add README.md
-* git commit -m "first commit"
-* git branch -M main
-* git remote add origin git@github.com:Jithan-R/Cypress_Training.git
-* git push -u origin main
+# Save Mocha reporter to get file (Currently supporting JSON & HTML)
+npx cypress run --reporter mochawesome
 
-**…or push an existing repository from the command line**
-* git remote add origin git@github.com:Jithan-R/Cypress_Training.git
-* git branch -M main
-* git push -u origin main
+# Retries test multiple times when they failed
+"retries": {
+  "runMode": 1,
+  "openMode" : 2
+}
